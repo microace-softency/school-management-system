@@ -2,46 +2,61 @@ import * as React from "react";
 import { useState } from "react";
 
 import GlobalStyles from "@mui/joy/GlobalStyles";
-import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import Card from "@mui/joy/Card";
-import Chip from "@mui/joy/Chip";
 import Divider from "@mui/joy/Divider";
 import IconButton from "@mui/joy/IconButton";
 import Input from "@mui/joy/Input";
-import LinearProgress from "@mui/joy/LinearProgress";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton, { listItemButtonClasses } from "@mui/joy/ListItemButton";
-import ListItemContent from "@mui/joy/ListItemContent";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import Stack from "@mui/joy/Stack";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
 import GroupRoundedIcon from "@mui/icons-material/GroupRounded";
 import SupportRoundedIcon from "@mui/icons-material/SupportRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import BrightnessAutoRoundedIcon from "@mui/icons-material/BrightnessAutoRounded";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import BusinessIcon from "@mui/icons-material/Business";
-import Inventory2Icon from "@mui/icons-material/Inventory2";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import SchoolIcon from "@mui/icons-material/School";
-import PersonIcon from '@mui/icons-material/Person';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import HttpsIcon from '@mui/icons-material/Https';
+import PersonIcon from "@mui/icons-material/Person";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import HttpsIcon from "@mui/icons-material/Https";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import ArticleIcon from '@mui/icons-material/Article';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import GroupsIcon from '@mui/icons-material/Groups';
+import CreateIcon from '@mui/icons-material/Create';
+import MoneyIcon from '@mui/icons-material/Money';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import MultipleStopIcon from '@mui/icons-material/MultipleStop';
+import SportsIcon from '@mui/icons-material/Sports';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
+import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
+import TransformIcon from '@mui/icons-material/Transform';
+import ReportIcon from '@mui/icons-material/Report';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
+import RestorePageIcon from '@mui/icons-material/RestorePage';
+import BackupIcon from '@mui/icons-material/Backup';
+
 
 // import ColorSchemeToggle from './ColorSchemeToggle';
 import { closeSidebar } from "../utils/utl";
 import { useNavigate } from "react-router";
-import { NavLink } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
 
 function Toggler({ defaultExpanded = false, renderToggle, children }) {
@@ -148,18 +163,23 @@ export default function Sidebar() {
           background: "rgb(255, 196, 54)",
         }}
       >
-        <IconButton variant="soft" color="primary" size="sm">
+        <IconButton
+          variant="soft"
+          color="primary"
+          size="sm"
+          sx={{ marginLeft: "10px" }}
+        >
           <BrightnessAutoRoundedIcon />
         </IconButton>
         <Typography level="title-lg">School</Typography>
         {/* <ColorSchemeToggle sx={{ ml: 'auto' }} /> */}
       </Box>
-      <Input
-        sx={{ margin: "2px" }}
+      {/* <Input
+        sx={{ margin: "2px" , marginX:"10px" }}
         size="sm"
         startDecorator={<SearchRoundedIcon />}
         placeholder="Search"
-      />
+      /> */}
       <Box
         sx={{
           minHeight: 0,
@@ -180,32 +200,23 @@ export default function Sidebar() {
             "--ListItem-radius": (theme) => theme.vars.radius.sm,
           }}
         >
-          {/* <ListItem>
-            <ListItemButton>
-              <HomeRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Home</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem> */}
-
           <ListItem>
             <ListItemButton sx={{ color: "white" }}>
               <DashboardRoundedIcon sx={{ color: "#FFC436" }} />
-              dashbord
+              Dashbord
             </ListItemButton>
           </ListItem>
 
           <ListItem>
             <ListItemButton
-              onClick={() => NavigateAndToggleSidebar("/hotel")}
+              onClick={() => NavigateAndToggleSidebar("")}
               sx={{ color: "white" }}
             >
               <BusinessIcon sx={{ color: "#FFC436" }} />
               Account
             </ListItemButton>
           </ListItem>
-          <ListItem>
+          {/* <ListItem>
             <ListItemButton
               onClick={() => NavigateAndToggleSidebar("/booking")}
               sx={{ color: "white" }}
@@ -213,7 +224,7 @@ export default function Sidebar() {
               <MenuBookIcon sx={{ color: "#FFC436" }} />
               Entry
             </ListItemButton>
-          </ListItem>
+          </ListItem> */}
           <ListItem nested>
             <Toggler
               renderToggle={({ open, setOpen }) => (
@@ -222,27 +233,42 @@ export default function Sidebar() {
                   sx={{ color: "white" }}
                 >
                   <AssignmentRoundedIcon sx={{ color: "#FFC436" }} />
-                  Hostel
+                  Master
                   <KeyboardArrowDownIcon
-                    sx={{ transform: open ? "rotate(180deg)" : "none" }}
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "43%",
+                    }}
                   />
                 </ListItemButton>
               )}
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
+              <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <ImportContactsIcon sx={{ color: "#FFC436" }} />
+                    General Ledger
+                  </ListItemButton>
+                </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("")}
                     sx={{ color: "white" }}
                   >
-                    <SchoolIcon sx={{ color: "#FFC436" }} />
-                    Master
+                    <ArticleIcon sx={{ color: "#FFC436" }} />
+                    Class Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton sx={{ color: "white" }}>
-                    <SchoolIcon sx={{ color: "#FFC436" }} />
-                    Master
+                    <AutoStoriesIcon sx={{ color: "#FFC436" }} />
+                    Section Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <LibraryBooksIcon sx={{ color: "#FFC436" }} />
+                    Subject Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -250,14 +276,26 @@ export default function Sidebar() {
                     sx={{ color: "white" }}
                     onClick={() => NavigateAndToggleSidebar("")}
                   >
-                    <SchoolIcon sx={{ color: "#FFC436" }} />
-                    Master
+                    <CurrencyRupeeIcon sx={{ color: "#FFC436" }} />
+                    Fee Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton sx={{ color: "white" }}>
-                    <SchoolIcon sx={{ color: "#FFC436" }} />
-                    Master
+                    <PersonIcon sx={{ color: "#FFC436" }} />
+                    Student Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <EditNoteIcon sx={{ color: "#FFC436" }} />
+                    Examination
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <GroupsIcon sx={{ color: "#FFC436" }} />
+                    Staff Master
                   </ListItemButton>
                 </ListItem>
               </List>
@@ -270,10 +308,13 @@ export default function Sidebar() {
                   onClick={() => setOpen(!open)}
                   sx={{ color: "white" }}
                 >
-                  <GroupRoundedIcon sx={{ color: "#FFC436" }} />
-                  Users
+                  <CreateIcon sx={{ color: "#FFC436" }} />
+                  Entry
                   <KeyboardArrowDownIcon
-                    sx={{ transform: open ? "rotate(180deg)" : "none" }}
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "48%",
+                    }}
                   />
                 </ListItemButton>
               )}
@@ -286,27 +327,319 @@ export default function Sidebar() {
                     href="/joy-ui/getting-started/templates/profile-dashboard/"
                     sx={{ color: "white" }}
                   >
+                    <MoneyIcon sx={{ color: "#FFC436" }} />
+                      Fee Receive
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
                     <PersonIcon sx={{ color: "#FFC436" }} />
-                    My profile
+                    Single Voucher
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton sx={{ color: "white" }}>
-                    <PersonAddIcon sx={{ color: "#FFC436" }} />
-                    Create a new user
+                    <ReceiptLongIcon sx={{ color: "#FFC436" }} />
+                    Mark Sheet
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton sx={{ color: "white" }}>
-                    <HttpsIcon sx={{ color: "#FFC436" }} />
-                    Roles & permission
+                    <ReceiptLongIcon sx={{ color: "#FFC436" }} />
+                    Attendance Remarks
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <MultipleStopIcon sx={{ color: "#FFC436" }} />
+                      Transfer To Next Year
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <ReceiptIcon sx={{ color: "#FFC436" }} />
+                    Payment Voucher
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <SportsIcon sx={{ color: "#FFC436" }} />
+                    Sport Fee Receive
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <SchoolIcon sx={{ color: "#FFC436" }} />
+                    Mark Sheet - Student Wise
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <ContactMailIcon sx={{ color: "#FFC436" }} />
+                    SMS
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+          </ListItem>
+          <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <LocalLibraryIcon sx={{ color: "#FFC436" }} />
+                  Library
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "42%",
+                    }}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+              <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <ImportContactsIcon sx={{ color: "#FFC436" }} />
+                      Book Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <ArticleIcon sx={{ color: "#FFC436" }} />
+                      Book Issue / Receive
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+          </ListItem> 
+          <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <ApartmentIcon sx={{ color: "#FFC436" }} />
+                  Student Hostel
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "41%",
+                    }}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+              <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <AddHomeWorkIcon sx={{ color: "#FFC436" }} />
+                    Student Hostel
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <CurrencyRupeeIcon sx={{ color: "#FFC436" }} />
+                      Hostel Fee Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <DownloadDoneIcon sx={{ color: "#FFC436" }} />
+                      Hostel Fee Receive
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <TransformIcon sx={{ color: "#FFC436" }} />
+                      Hostel Student Transfer
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <TransformIcon sx={{ color: "#FFC436" }} />
+                      Hostel FeeMaster Transfer
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+          </ListItem>
+          <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <ReportIcon sx={{ color: "#FFC436" }} />
+                   Report
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "44%",
+                    }}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+              <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <AssignmentRoundedIcon sx={{ color: "#FFC436" }} />
+                      Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <CurrencyRupeeIcon sx={{ color: "#FFC436" }} />
+                      Fee
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <LibraryBooksIcon sx={{ color: "#FFC436" }} />
+                      Library
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <ApartmentIcon sx={{ color: "#FFC436" }} />
+                      Hostel
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <ReceiptLongIcon sx={{ color: "#FFC436" }} />
+                      Mark Sheet
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+          </ListItem>
+          <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <SettingsSuggestIcon sx={{ color: "#FFC436" }} />
+                   Payroll Sytem
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "44%",
+                    }}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+              <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <GroupsIcon sx={{ color: "#FFC436" }} />
+                      Staff Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <AccountBalanceWalletIcon sx={{ color: "#FFC436" }} />
+                      Salary Entry
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <ReceiptIcon sx={{ color: "#FFC436" }} />
+                      pay Slip
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <AppRegistrationIcon sx={{ color: "#FFC436" }} />
+                      Pay Register
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+          </ListItem>
+          <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <AppSettingsAltIcon sx={{ color: "#FFC436" }} />
+                    Maintenance
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "40%",
+                    }}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+              <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <BackupIcon sx={{ color: "#FFC436" }} />
+                      Data Backup
+                  </ListItemButton>
+                </ListItem>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("")}
+                    sx={{ color: "white" }}
+                  >
+                    <RestorePageIcon sx={{ color: "#FFC436" }} />
+                      Data Restore
                   </ListItemButton>
                 </ListItem>
               </List>
             </Toggler>
           </ListItem>
         </List>
-
         <List
           size="sm"
           sx={{
@@ -332,7 +665,9 @@ export default function Sidebar() {
         </List>
       </Box>
       <Divider />
-      <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+      <Box
+        sx={{ display: "flex", gap: 1, alignItems: "center", marginX: "10px" }}
+      >
         <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
           <Box sx={{ minWidth: 0, flex: 1 }}>
             {/* <Typography level="title-sm"></Typography> */}
