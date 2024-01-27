@@ -6,6 +6,7 @@ import Box from '@mui/joy/Box';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
+import '../App.css'
 // import { useAuth } from "../utils/AuthContext";
 
 export default function Layout({ children }) {
@@ -44,7 +45,7 @@ export default function Layout({ children }) {
             height: '100dvh',
             gap: 1,
             overflow:"scroll",
-            // backgroundColor:"#a9a9a969"
+            paddingTop:"8vh !important"
           }}
         >
           {children}
