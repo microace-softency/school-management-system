@@ -19,6 +19,11 @@ import AttendanceRemark from './pages/entry/AttendanceRemark';
 import TransferNextYear from './pages/entry/TransferNextYear';
 import PaymentVoucher from './pages/entry/PaymentVoucher';
 import SportFeeReceive from './pages/entry/SportFeeReceive';
+import BookMaster from './pages/library/BookMaster';
+import BookReceiveIssue from './pages/library/BookReceiveIssue';
+import Hostel from './pages/hostel/Hostel';
+import HostelFeeMaster from './pages/hostel/HostelFeeMaster';
+import HostelFeeReceive from './pages/hostel/HostelFeeReceive';
 
 function App() {
   return (
@@ -45,6 +50,13 @@ function App() {
             <Route path='/transfernextyer' element={<TransferNextYear/>}/>
             <Route path='/paymentvoucher' element={<PaymentVoucher/>}/>
             <Route path='/sportfeereceive' element={<SportFeeReceive/>}/>
+
+            <Route path='/bookmaster' element={<BookMaster/>}/>
+            <Route path='/bookreceiveissue' element={<BookReceiveIssue/>}/>
+
+            <Route path='/hostel' element={<Hostel/>}/>
+            <Route path='/hostelfeeMaster' element={<HostelFeeMaster/>}/>
+            <Route path='/hostelfeereceive' element={<HostelFeeReceive/>}/>
             </Route>
           </Routes>
         </AuthContextProvider>

@@ -2,12 +2,12 @@ import * as React from 'react';
 import Box from '@mui/joy/Box';
 import { AspectRatio, Button, Card, CardActions, CardOverflow, Divider, FormControl, FormLabel, Input, Option, Select, Stack, Textarea, Typography } from '@mui/joy';
 
-export default function SportFeeReceive() {
+export default function BookMaster() {
   return (
     <Box sx={{ flex: 1, width: '100%', marginTop:"3vh" }}>
         <Card>
           <Box sx={{ mb: 1 }}>
-            <Typography level="title-md">Sport Fee Receive</Typography>
+            <Typography level="title-md">Book Details</Typography>
             {/* <Typography level="body-sm">
               Customize how your ClassMaster information will apper to the networks.
             </Typography> */}
@@ -18,66 +18,61 @@ export default function SportFeeReceive() {
             spacing={3}
             sx={{ display: { xs: 'block', md: 'flex' }, my: 1 }}
           >
-            <Stack direction="column" spacing={1}>
-            </Stack>
+
             <Stack spacing={2} sx={{ flexGrow: 1 }}>
               <Stack spacing={1}>
-                <FormLabel>Voucher No</FormLabel>
+            <FormLabel sx={{color:"red"}}>Book Details</FormLabel>
+
+                <FormLabel>Book Code</FormLabel>
                 <FormControl
                   sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
                 >
-                  <Input size="sm" placeholder="Enter Voucher No" />
+                  <Input size="sm" placeholder="Enter Book Code" />
                   {/* <Button>+</Button> */}
                   {/* <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} /> */}
                 </FormControl>
               </Stack>
                 <FormControl sx={{ flexGrow: 1 }}>
-                  <FormLabel>Date</FormLabel>
-                  <Input
-                    size="sm"
-                    type="Date"
-                    // startDecorator={<EmailRoundedIcon />}
-                    sx={{ flexGrow: 1 }}
-                  />
-                </FormControl>
-                <FormControl sx={{ flexGrow: 1 }}>
-                  <FormLabel>Player Code</FormLabel>
+                  <FormLabel>Book Name</FormLabel>
                   <Input
                     size="sm"
                     // startDecorator={<EmailRoundedIcon />}
                     sx={{ flexGrow: 1 }}
-                    placeholder='Enter Player Code'
+                    placeholder='Enter Book Name'
                   />
                 </FormControl>
                 <FormControl sx={{ flexGrow: 1 }}>
-                  <FormLabel></FormLabel>
+                  <FormLabel>Quantity</FormLabel>
                   <Textarea
                     size="sm"
                     // startDecorator={<EmailRoundedIcon />}
                     sx={{ flexGrow: 1 }}
+                    placeholder='Enter Quantity'
                   />
                 </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
-                <FormLabel>Sport Code</FormLabel>
+                <FormLabel>Book Group</FormLabel>
                 <Input
                   size="sm"
                   // startDecorator={<EmailRoundedIcon />}
-                  placeholder="Enter Sport Code"
+                  placeholder="Enter Book Group"
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
-                <FormLabel></FormLabel>
+                <FormLabel>Writer Name</FormLabel>
                 <Input
                   size="sm"
                   // startDecorator={<EmailRoundedIcon />}
-                  placeholder=""
+                  placeholder="Enter Writer Name"
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
-                <FormLabel>Fee Type</FormLabel>
-                <Select placeholder=" Select Fee Type">
-                  <Option value="School">School</Option>
-                </Select>
+                <FormLabel>Publisher Name</FormLabel>
+                <Input
+                  size="sm"
+                  // startDecorator={<EmailRoundedIcon />}
+                  placeholder="Enter Publisher Name"
+                />
               </FormControl>
             </Stack>
           </Stack>

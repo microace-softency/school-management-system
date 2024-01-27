@@ -404,7 +404,7 @@ export default function Sidebar() {
                     Sport Fee Receive
                   </ListItemButton>
                 </ListItem>
-                <ListItem>
+                {/* <ListItem>
                   <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("/")}
                     sx={{ color: "white" }}
@@ -421,7 +421,7 @@ export default function Sidebar() {
                     <ContactMailIcon sx={{ color: "#FFC436" }} />
                     SMS
                   </ListItemButton>
-                </ListItem>
+                </ListItem> */}
               </List>
             </Toggler>
           </ListItem>
@@ -445,14 +445,16 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton 
+                    onClick={() => NavigateAndToggleSidebar("/bookmaster")}
+                  sx={{ color: "white" }}>
                     <ImportContactsIcon sx={{ color: "#FFC436" }} />
                     Book Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
+                    onClick={() => NavigateAndToggleSidebar("/bookreceiveissue")}
                     sx={{ color: "white" }}
                   >
                     <ArticleIcon sx={{ color: "#FFC436" }} />
@@ -470,7 +472,7 @@ export default function Sidebar() {
                   sx={{ color: "white" }}
                 >
                   <ApartmentIcon sx={{ color: "#FFC436" }} />
-                  Student Hostel
+                   Hostel
                   <KeyboardArrowDownIcon
                     sx={{
                       transform: open ? "rotate(180deg)" : "none",
@@ -482,14 +484,16 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("/hostel")}
+                  sx={{ color: "white" }}>
                     <AddHomeWorkIcon sx={{ color: "#FFC436" }} />
                     Student Hostel
                   </ListItemButton>
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
+                    onClick={() => NavigateAndToggleSidebar("/hostelfeeMaster")}
                     sx={{ color: "white" }}
                   >
                     <CurrencyRupeeIcon sx={{ color: "#FFC436" }} />
@@ -498,7 +502,7 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
+                    onClick={() => NavigateAndToggleSidebar("/hostelfeereceive")}
                     sx={{ color: "white" }}
                   >
                     <DownloadDoneIcon sx={{ color: "#FFC436" }} />

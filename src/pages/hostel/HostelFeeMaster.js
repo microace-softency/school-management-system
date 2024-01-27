@@ -2,12 +2,12 @@ import * as React from 'react';
 import Box from '@mui/joy/Box';
 import { AspectRatio, Button, Card, CardActions, CardOverflow, Divider, FormControl, FormLabel, Input, Option, Select, Stack, Textarea, Typography } from '@mui/joy';
 
-export default function SportFeeReceive() {
+export default function HostelFeeMaster() {
   return (
     <Box sx={{ flex: 1, width: '100%', marginTop:"3vh" }}>
         <Card>
           <Box sx={{ mb: 1 }}>
-            <Typography level="title-md">Sport Fee Receive</Typography>
+            <Typography level="title-md">Hostel Fee Details</Typography>
             {/* <Typography level="body-sm">
               Customize how your ClassMaster information will apper to the networks.
             </Typography> */}
@@ -18,66 +18,50 @@ export default function SportFeeReceive() {
             spacing={3}
             sx={{ display: { xs: 'block', md: 'flex' }, my: 1 }}
           >
-            <Stack direction="column" spacing={1}>
-            </Stack>
+
             <Stack spacing={2} sx={{ flexGrow: 1 }}>
               <Stack spacing={1}>
-                <FormLabel>Voucher No</FormLabel>
+
+                <FormLabel>Order No.</FormLabel>
                 <FormControl
                   sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
                 >
-                  <Input size="sm" placeholder="Enter Voucher No" />
+                  <Input size="sm" placeholder="Enter Book Code" />
                   {/* <Button>+</Button> */}
                   {/* <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} /> */}
                 </FormControl>
               </Stack>
                 <FormControl sx={{ flexGrow: 1 }}>
-                  <FormLabel>Date</FormLabel>
-                  <Input
-                    size="sm"
-                    type="Date"
-                    // startDecorator={<EmailRoundedIcon />}
-                    sx={{ flexGrow: 1 }}
-                  />
+                  <FormLabel>Fee Type</FormLabel>
+                  <Select placeholder=" Select Fee Type">
+                  <Option value="Admission">Admission</Option>
+                  <Option value="Monthly">Monthly</Option>
+                  <Option value="Annualy">Annualy</Option>
+                </Select>
                 </FormControl>
                 <FormControl sx={{ flexGrow: 1 }}>
-                  <FormLabel>Player Code</FormLabel>
-                  <Input
-                    size="sm"
-                    // startDecorator={<EmailRoundedIcon />}
-                    sx={{ flexGrow: 1 }}
-                    placeholder='Enter Player Code'
-                  />
-                </FormControl>
-                <FormControl sx={{ flexGrow: 1 }}>
-                  <FormLabel></FormLabel>
+                  <FormLabel>Fee Name</FormLabel>
                   <Textarea
                     size="sm"
                     // startDecorator={<EmailRoundedIcon />}
                     sx={{ flexGrow: 1 }}
+                    placeholder='Enter Fee Name'
                   />
                 </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
-                <FormLabel>Sport Code</FormLabel>
+                <FormLabel>Amount</FormLabel>
                 <Input
                   size="sm"
                   // startDecorator={<EmailRoundedIcon />}
-                  placeholder="Enter Sport Code"
+                  placeholder="Enter Ammount"
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
-                <FormLabel></FormLabel>
+                <FormLabel>Ledger</FormLabel>
                 <Input
                   size="sm"
                   // startDecorator={<EmailRoundedIcon />}
-                  placeholder=""
                 />
-              </FormControl>
-              <FormControl sx={{ flexGrow: 1 }}>
-                <FormLabel>Fee Type</FormLabel>
-                <Select placeholder=" Select Fee Type">
-                  <Option value="School">School</Option>
-                </Select>
               </FormControl>
             </Stack>
           </Stack>
