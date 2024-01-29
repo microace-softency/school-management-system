@@ -247,7 +247,10 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("/generalledger")}
+                    sx={{ color: "white" }}
+                  >
                     <ImportContactsIcon sx={{ color: "#FFC436" }} />
                     General Ledger
                   </ListItemButton>
@@ -370,7 +373,9 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("/attendanceremark")}
+                    onClick={() =>
+                      NavigateAndToggleSidebar("/attendanceremark")
+                    }
                     sx={{ color: "white" }}
                   >
                     <ReceiptLongIcon sx={{ color: "#FFC436" }} />
@@ -445,16 +450,19 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton 
+                  <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("/bookmaster")}
-                  sx={{ color: "white" }}>
+                    sx={{ color: "white" }}
+                  >
                     <ImportContactsIcon sx={{ color: "#FFC436" }} />
                     Book Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("/bookreceiveissue")}
+                    onClick={() =>
+                      NavigateAndToggleSidebar("/bookreceiveissue")
+                    }
                     sx={{ color: "white" }}
                   >
                     <ArticleIcon sx={{ color: "#FFC436" }} />
@@ -472,11 +480,11 @@ export default function Sidebar() {
                   sx={{ color: "white" }}
                 >
                   <ApartmentIcon sx={{ color: "#FFC436" }} />
-                   Hostel
+                  Hostel
                   <KeyboardArrowDownIcon
                     sx={{
                       transform: open ? "rotate(180deg)" : "none",
-                      marginX: "41%",
+                      marginX: "45%",
                     }}
                   />
                 </ListItemButton>
@@ -486,7 +494,8 @@ export default function Sidebar() {
                 <ListItem>
                   <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("/hostel")}
-                  sx={{ color: "white" }}>
+                    sx={{ color: "white" }}
+                  >
                     <AddHomeWorkIcon sx={{ color: "#FFC436" }} />
                     Student Hostel
                   </ListItemButton>
@@ -502,14 +511,16 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("/hostelfeereceive")}
+                    onClick={() =>
+                      NavigateAndToggleSidebar("/hostelfeereceive")
+                    }
                     sx={{ color: "white" }}
                   >
                     <DownloadDoneIcon sx={{ color: "#FFC436" }} />
                     Hostel Fee Receive
                   </ListItemButton>
                 </ListItem>
-                <ListItem sx={{ mt: 0.5 }}>
+                {/* <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("")}
                     sx={{ color: "white" }}
@@ -526,11 +537,11 @@ export default function Sidebar() {
                     <TransformIcon sx={{ color: "#FFC436" }} />
                     Hostel FeeMaster Transfer
                   </ListItemButton>
-                </ListItem>
+                </ListItem> */}
               </List>
             </Toggler>
           </ListItem>
-          <ListItem nested>
+          {/* <ListItem nested>
             <Toggler
               renderToggle={({ open, setOpen }) => (
                 <ListItemButton
@@ -593,7 +604,7 @@ export default function Sidebar() {
                 </ListItem>
               </List>
             </Toggler>
-          </ListItem>
+          </ListItem> */}
           <ListItem nested>
             <Toggler
               renderToggle={({ open, setOpen }) => (
@@ -614,14 +625,17 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton
+                    onClick={() => NavigateAndToggleSidebar("/staffpayroll")}
+                    sx={{ color: "white" }}
+                  >
                     <GroupsIcon sx={{ color: "#FFC436" }} />
                     Staff Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
+                    onClick={() => NavigateAndToggleSidebar("/salaryentry")}
                     sx={{ color: "white" }}
                   >
                     <AccountBalanceWalletIcon sx={{ color: "#FFC436" }} />
@@ -630,7 +644,7 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
+                    onClick={() => NavigateAndToggleSidebar("/")}
                     sx={{ color: "white" }}
                   >
                     <ReceiptIcon sx={{ color: "#FFC436" }} />
@@ -639,7 +653,7 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
+                    onClick={() => NavigateAndToggleSidebar("/")}
                     sx={{ color: "white" }}
                   >
                     <AppRegistrationIcon sx={{ color: "#FFC436" }} />
