@@ -65,7 +65,7 @@ function ColorSchemeToggle(props) {
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const { signIn } = useAuth();
+  const { signIn, token } = useAuth();
 
 
   const {
@@ -82,6 +82,12 @@ export default function SignIn() {
       console.log(err);
     }
   };
+
+  useEffect(()=>{
+    if(token){
+      navigate('/')
+    }
+  })
 
   return (
     <>

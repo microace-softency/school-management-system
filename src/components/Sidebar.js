@@ -54,7 +54,6 @@ import RestorePageIcon from "@mui/icons-material/RestorePage";
 import BackupIcon from "@mui/icons-material/Backup";
 import { FaSchoolFlag } from "react-icons/fa6";
 
-
 // import ColorSchemeToggle from './ColorSchemeToggle';
 import { closeSidebar } from "../utils/utl";
 import { useNavigate } from "react-router";
@@ -161,20 +160,21 @@ export default function Sidebar() {
           height: "9%",
           gap: 1,
           alignItems: "center",
-          background: "rgb(255, 196, 54)",
+          background: "rgb(255, 196, 54)"
         }}
       >
         <IconButton
           variant="soft"
           color="primary"
           size="sm"
-          sx={{ marginLeft: "10px", cursor:"pointer" }}
-          onClick={()=>navigate('/')}
+          sx={{ marginLeft: "10px", cursor: "pointer" }}
+          onClick={() => navigate("/")}
         >
           {/* <BrightnessAutoRoundedIcon /> */}
-          <FaSchoolFlag/>
+          <FaSchoolFlag />
         </IconButton>
-        <Typography level="title-lg">School</Typography>
+        <Typography level="title-lg">H-SKUULZ</Typography>
+        {/* <Typography level="body-sm">A School Management Software</Typography>s */}
         {/* <ColorSchemeToggle sx={{ ml: 'auto' }} /> */}
       </Box>
       {/* <Input
@@ -693,9 +693,7 @@ export default function Sidebar() {
                   </ListItemButton>
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton
-                    sx={{ color: "white" }}
-                  >
+                  <ListItemButton sx={{ color: "white" }}>
                     <RestorePageIcon sx={{ color: "#FFC436" }} />
                     Data Restore
                   </ListItemButton>

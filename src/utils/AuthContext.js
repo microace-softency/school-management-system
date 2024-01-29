@@ -18,6 +18,7 @@ export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token') || null);
 
   const clearState = () => {
+    localStorage.removeItem('user'); // Remove user data from local storage
     localStorage.removeItem('tenant');
     setTenant(null);
   }
@@ -62,8 +63,10 @@ export const AuthContextProvider = ({ children }) => {
             throw new Error('Tenant ID not found');
           }
           // console.log(res);
+          localStorage.setItem('user', JSON.stringify(signInResult.user));
           return res;
         }
+
       } catch (error) {
         // clearState()
         console.error('Error signing in:', error.message);
@@ -71,6 +74,7 @@ export const AuthContextProvider = ({ children }) => {
       }
     }
       const logout = () => {
+        localStorage.removeItem('user');
         clearState()
         return signOut(auth)
       };
