@@ -52,6 +52,8 @@ import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import AppSettingsAltIcon from "@mui/icons-material/AppSettingsAlt";
 import RestorePageIcon from "@mui/icons-material/RestorePage";
 import BackupIcon from "@mui/icons-material/Backup";
+import { FaSchoolFlag } from "react-icons/fa6";
+
 
 // import ColorSchemeToggle from './ColorSchemeToggle';
 import { closeSidebar } from "../utils/utl";
@@ -166,9 +168,11 @@ export default function Sidebar() {
           variant="soft"
           color="primary"
           size="sm"
-          sx={{ marginLeft: "10px" }}
+          sx={{ marginLeft: "10px", cursor:"pointer" }}
+          onClick={()=>navigate('/')}
         >
-          <BrightnessAutoRoundedIcon />
+          {/* <BrightnessAutoRoundedIcon /> */}
+          <FaSchoolFlag/>
         </IconButton>
         <Typography level="title-lg">School</Typography>
         {/* <ColorSchemeToggle sx={{ ml: 'auto' }} /> */}
@@ -642,7 +646,7 @@ export default function Sidebar() {
                     Salary Entry
                   </ListItemButton>
                 </ListItem>
-                <ListItem sx={{ mt: 0.5 }}>
+                {/* <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("/")}
                     sx={{ color: "white" }}
@@ -650,8 +654,8 @@ export default function Sidebar() {
                     <ReceiptIcon sx={{ color: "#FFC436" }} />
                     pay Slip
                   </ListItemButton>
-                </ListItem>
-                <ListItem sx={{ mt: 0.5 }}>
+                </ListItem> */}
+                {/* <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
                     onClick={() => NavigateAndToggleSidebar("/")}
                     sx={{ color: "white" }}
@@ -659,7 +663,7 @@ export default function Sidebar() {
                     <AppRegistrationIcon sx={{ color: "#FFC436" }} />
                     Pay Register
                   </ListItemButton>
-                </ListItem>
+                </ListItem> */}
               </List>
             </Toggler>
           </ListItem>
@@ -690,7 +694,6 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("")}
                     sx={{ color: "white" }}
                   >
                     <RestorePageIcon sx={{ color: "#FFC436" }} />

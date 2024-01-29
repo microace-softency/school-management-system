@@ -86,7 +86,7 @@ export default function SignIn() {
   return (
     <>
       
-      <CssVarsProvider defaultMode="dark" disableTransitionOnChange>
+      <CssVarsProvider defaultMode="Light" disableTransitionOnChange>
       <CssBaseline />
       <GlobalStyles
         styles={{
@@ -139,7 +139,7 @@ export default function SignIn() {
               <IconButton variant="soft" color="primary" size="sm">
                 <BadgeRoundedIcon />
               </IconButton>
-              <Typography level="title-lg">Hotel </Typography>
+              <Typography level="title-lg">School </Typography>
             </Box>
             <ColorSchemeToggle />
           </Box>
