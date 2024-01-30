@@ -28,7 +28,7 @@ export default function Header() {
         borderBottom: '1px solid',
         borderColor: 'background.level1',
         boxShadow: 'sm',
-        background:"#0174BE"
+        background:"#0174BE",
       }}
     >
       <GlobalStyles
@@ -50,7 +50,7 @@ export default function Header() {
         <MenuIcon />
       </IconButton>
      
-      <div style={{display:"flex", alignItems:"center", gap :"3%"}}>
+      <div style={{display:"flex", alignItems:"center", gap :"3%", padding:"3%"}}>
       <Input
         sx={{ margin: "2px" , display:{xs:"none", md:"flex"}}}
         size="sm"
@@ -63,13 +63,12 @@ export default function Header() {
       </div>  
         <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', margin:"23px" }}>
         <Avatar
-          variant="outlined"
           size="sm"
-          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
+          // src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
         />
         <Box sx={{ minWidth: 0, flex: 1, display:{xs:"none", md:"block"} }} >
-          <Typography level="title-sm" sx={{color:"white"}}>Siriwat K.</Typography>
-          <Typography level="body-xs" sx={{color:"white"}}>siriwatk@test.com</Typography>
+          <Typography level="title-sm" sx={{color:"white"}}>Snehangshu</Typography>
+          <Typography level="body-xs" sx={{color:"white"}}>Snehangshu@gmail.com</Typography>
         </Box>
       </Box>
       </div>
