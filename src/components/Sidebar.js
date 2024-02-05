@@ -53,6 +53,16 @@ import AppSettingsAltIcon from "@mui/icons-material/AppSettingsAlt";
 import RestorePageIcon from "@mui/icons-material/RestorePage";
 import BackupIcon from "@mui/icons-material/Backup";
 import { FaSchoolFlag } from "react-icons/fa6";
+import CommuteIcon from "@mui/icons-material/Commute";
+import PortraitIcon from "@mui/icons-material/Portrait";
+import DriveFileMoveIcon from "@mui/icons-material/DriveFileMove";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import LockIcon from "@mui/icons-material/Lock";
+import DiscountIcon from "@mui/icons-material/Discount";
+import PercentIcon from "@mui/icons-material/Percent";
+import InfoIcon from "@mui/icons-material/Info";
+import SportsBarIcon from '@mui/icons-material/SportsBar';
+import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
 
 // import ColorSchemeToggle from './ColorSchemeToggle';
 import { closeSidebar } from "../utils/utl";
@@ -160,7 +170,7 @@ export default function Sidebar() {
           height: "9%",
           gap: 1,
           alignItems: "center",
-          background: "rgb(255, 196, 54)"
+          background: "rgb(255, 196, 54)",
         }}
       >
         <IconButton
@@ -212,15 +222,90 @@ export default function Sidebar() {
               Dashbord
             </ListItemButton>
           </ListItem>
-
-          <ListItem>
-            <ListItemButton
-              onClick={() => NavigateAndToggleSidebar("")}
-              sx={{ color: "white" }}
+          <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <PortraitIcon sx={{ color: "#FFC436" }} />
+                  Account
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                      marginX: "39%",
+                    }}
+                  />
+                </ListItemButton>
+              )}
             >
-              <BusinessIcon sx={{ color: "#FFC436" }} />
-              Account
-            </ListItemButton>
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <DriveFileMoveIcon sx={{ color: "#FFC436" }} />
+                    New
+                  </ListItemButton>
+                </ListItem>
+                <ListItem nested>
+                  <Toggler
+                    renderToggle={({ open, setOpen }) => (
+                      <ListItemButton
+                        onClick={() => setOpen(!open)}
+                        sx={{ color: "white" }}
+                      >
+                        <SettingsSuggestIcon sx={{ color: "#FFC436" }} />
+                        Preferencd
+                        <KeyboardArrowDownIcon
+                          sx={{
+                            transform: open ? "rotate(180deg)" : "none",
+                          }}
+                        />
+                      </ListItemButton>
+                    )}
+                  >
+                    <List sx={{ gap: 0.5, background: "#0056d212" }}>
+                      <ListItem>
+                        <ListItemButton sx={{ color: "white" }}>
+                          <PermIdentityIcon sx={{ color: "#FFC436" }} />
+                          User Master
+                        </ListItemButton>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemButton sx={{ color: "white" }}>
+                          <LockIcon sx={{ color: "#FFC436" }} />
+                          Securiity Rights Groups
+                        </ListItemButton>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemButton sx={{ color: "white" }}>
+                          <ReceiptLongIcon sx={{ color: "#FFC436" }} />
+                          Reconciliation
+                        </ListItemButton>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemButton sx={{ color: "white" }}>
+                          <DiscountIcon sx={{ color: "#FFC436" }} />
+                          Fee Discount Setup
+                        </ListItemButton>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemButton sx={{ color: "white" }}>
+                          <PercentIcon sx={{ color: "#FFC436" }} />
+                          Hostel Fee Discount Setup
+                        </ListItemButton>
+                      </ListItem>
+                    </List>
+                  </Toggler>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <InfoIcon sx={{ color: "#FFC436" }} />
+                    About Us
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
           </ListItem>
           {/* <ListItem>
             <ListItemButton
@@ -289,6 +374,17 @@ export default function Sidebar() {
                 <ListItem>
                   <ListItemButton
                     sx={{ color: "white" }}
+                    onClick={() =>
+                      NavigateAndToggleSidebar("/conveyanceMaster")
+                    }
+                  >
+                    <CommuteIcon sx={{ color: "#FFC436" }} />
+                    Conveyance
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton
+                    sx={{ color: "white" }}
                     onClick={() => NavigateAndToggleSidebar("/feemaster")}
                   >
                     <CurrencyRupeeIcon sx={{ color: "#FFC436" }} />
@@ -324,6 +420,39 @@ export default function Sidebar() {
                     Staff Master
                   </ListItemButton>
                 </ListItem>
+                <ListItem nested>
+            <Toggler
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton
+                  onClick={() => setOpen(!open)}
+                  sx={{ color: "white" }}
+                >
+                  <SportsIcon sx={{ color: "#FFC436" }} />
+                  Sport
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      transform: open ? "rotate(180deg)" : "none",
+                    }}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5, background: "#0056d212" }}>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <SportsBarIcon sx={{ color: "#FFC436" }} />
+                    Sport Master
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton sx={{ color: "white" }}>
+                    <SportsKabaddiIcon sx={{ color: "#FFC436" }} />
+                    player
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+                 </ListItem>
               </List>
             </Toggler>
           </ListItem>

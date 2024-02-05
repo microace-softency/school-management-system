@@ -46,6 +46,15 @@ export default function GeneralLedger() {
                 {/* <Button>+</Button> */}
                 {/* <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} /> */}
               </FormControl>
+              <FormControl sx={{ flexGrow: 1 }}>
+                <FormLabel>Description</FormLabel>
+                <Input
+                  size="sm"
+                  // startDecorator={<AccountCircleIcon />}
+                  placeholder="Enter Description"
+                  sx={{ flexGrow: 1 }}
+                />
+              </FormControl>
             </Stack>
             <Stack direction="column" spacing={2}>
             <FormControl>

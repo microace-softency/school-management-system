@@ -5,6 +5,8 @@ import Typography from "@mui/joy/Typography";
 import { GiTeacher } from "react-icons/gi";
 import { PiStudent } from "react-icons/pi";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { FaHandHoldingUsd } from "react-icons/fa";
+
 
 export default function Dashbord() {
   return (
@@ -33,7 +35,7 @@ export default function Dashbord() {
           <PiStudent style={{ fontSize: "30px" }} />
           <CardContent>
             <Typography level="body-sm" id="card-description">
-              total Student
+              Total Enrollment
             </Typography>
             <Typography
               level="title-lg"
@@ -59,17 +61,17 @@ export default function Dashbord() {
             width: "25%",
           }}
         >
-          <GiTeacher style={{ fontSize: "30px" }} />
+          <FaHandHoldingUsd style={{ fontSize: "30px" }} />
           <CardContent>
             <Typography level="body-sm" id="card-description">
-              total Teacher
+              Fee Collection
             </Typography>
             <Typography
               level="title-lg"
               aria-describedby="card-description"
               mb={1}
             >
-              20
+              20000
             </Typography>
           </CardContent>
         </Card>

@@ -27,6 +27,7 @@ import HostelFeeReceive from "./pages/hostel/HostelFeeReceive";
 import StaffMasterPayRoll from "./pages/PayrollSytem/StaffMasterPayRoll";
 import SalaryEntry from "./pages/PayrollSytem/SalaryEntry";
 import GeneralLedger from "./pages/master/GeneralLedger";
+import ConveyanceMaster from "./pages/master/ConveyanceMaster";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
                 element={<ExaminationMaster />}
               />
               <Route path="/staffmaster" element={<StaffMaster />} />
+              <Route path="/conveyanceMaster" element={<ConveyanceMaster />} />
 
               <Route path="/feereceive" element={<FeeReceive />} />
               <Route path="/singlevoucher" element={<SingleVoucher />} />

@@ -24,6 +24,6 @@ export default function PrivateRoute() {
       </div>
     )
   ) : (
-    <Navigate to="/singin" />
+    <Navigate to="/singin" /> 
   );
 }
