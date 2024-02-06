@@ -28,6 +28,13 @@ import StaffMasterPayRoll from "./pages/PayrollSytem/StaffMasterPayRoll";
 import SalaryEntry from "./pages/PayrollSytem/SalaryEntry";
 import GeneralLedger from "./pages/master/GeneralLedger";
 import ConveyanceMaster from "./pages/master/ConveyanceMaster";
+import NewAccount from "./pages/Account/NewAccount";
+import UserMaster from "./pages/Account/preferencd/UserMaster";
+import SecuriityRightsGroups from "./pages/Account/preferencd/SecuriityRightsGroups";
+import FeeDiscountSetp from "./pages/Account/preferencd/FeeDiscountSetup";
+import HostelFeeDiscountSetup from "./pages/Account/preferencd/HostelFeeDiscountSetup";
+import SportsMaster from "./pages/master/sport/SortsMaster";
+import Player from "./pages/master/sport/Player";
 
 function App() {
   return (
@@ -51,6 +58,15 @@ function App() {
               />
               <Route path="/staffmaster" element={<StaffMaster />} />
               <Route path="/conveyanceMaster" element={<ConveyanceMaster />} />
+              <Route path="/sportmaster" element={<SportsMaster />} />
+              <Route path="/player" element={<Player />} />
+
+
+              <Route path="/newaccount" element={<NewAccount />} />
+              <Route path="/usermaster" element={<UserMaster />} />
+              <Route path="/userpermissions" element={<SecuriityRightsGroups />} />
+              <Route path="/feediscountsetup" element={<FeeDiscountSetp />} />
+              <Route path="/hostelfeediscountsetup" element={<HostelFeeDiscountSetup />} />
 
               <Route path="/feereceive" element={<FeeReceive />} />
               <Route path="/singlevoucher" element={<SingleVoucher />} />

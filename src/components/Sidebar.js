@@ -242,7 +242,10 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton 
+                    sx={{ color: "white" }}
+                    onClick={() => NavigateAndToggleSidebar("/newAccount")}
+                  >
                     <DriveFileMoveIcon sx={{ color: "#FFC436" }} />
                     New
                   </ListItemButton>
@@ -266,13 +269,19 @@ export default function Sidebar() {
                   >
                     <List sx={{ gap: 0.5, background: "#0056d212" }}>
                       <ListItem>
-                        <ListItemButton sx={{ color: "white" }}>
+                        <ListItemButton 
+                          sx={{ color: "white" }}
+                          onClick={() => NavigateAndToggleSidebar("/usermaster")}
+                        >
                           <PermIdentityIcon sx={{ color: "#FFC436" }} />
                           User Master
                         </ListItemButton>
                       </ListItem>
                       <ListItem>
-                        <ListItemButton sx={{ color: "white" }}>
+                        <ListItemButton 
+                          sx={{ color: "white" }}
+                          onClick={() => NavigateAndToggleSidebar("/userpermissions")}
+                        >
                           <LockIcon sx={{ color: "#FFC436" }} />
                           Securiity Rights Groups
                         </ListItemButton>
@@ -284,13 +293,19 @@ export default function Sidebar() {
                         </ListItemButton>
                       </ListItem>
                       <ListItem>
-                        <ListItemButton sx={{ color: "white" }}>
+                        <ListItemButton 
+                          sx={{ color: "white" }}
+                          onClick={() => NavigateAndToggleSidebar("/feediscountsetup")}
+                        >
                           <DiscountIcon sx={{ color: "#FFC436" }} />
                           Fee Discount Setup
                         </ListItemButton>
                       </ListItem>
                       <ListItem>
-                        <ListItemButton sx={{ color: "white" }}>
+                        <ListItemButton 
+                          sx={{ color: "white" }}
+                          onClick={() => NavigateAndToggleSidebar("/hostelfeediscountsetup")}
+                        >
                           <PercentIcon sx={{ color: "#FFC436" }} />
                           Hostel Fee Discount Setup
                         </ListItemButton>
@@ -439,13 +454,19 @@ export default function Sidebar() {
             >
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton 
+                    sx={{ color: "white" }}
+                    onClick={() => NavigateAndToggleSidebar("/sportmaster")}
+                  >
                     <SportsBarIcon sx={{ color: "#FFC436" }} />
                     Sport Master
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton sx={{ color: "white" }}>
+                  <ListItemButton 
+                    sx={{ color: "white" }}
+                    onClick={() => NavigateAndToggleSidebar("/player")}
+                  >
                     <SportsKabaddiIcon sx={{ color: "#FFC436" }} />
                     player
                   </ListItemButton>

@@ -6,7 +6,11 @@ import { GiTeacher } from "react-icons/gi";
 import { PiStudent } from "react-icons/pi";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaHandHoldingUsd } from "react-icons/fa";
-
+import PieActiveArc from "../components/PieActiveArc";
+import { FaFacebook } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { Stack } from "@mui/joy";
+import BasicTable from "../components/BasicTable";
 
 export default function Dashbord() {
   return (
@@ -105,6 +109,266 @@ export default function Dashbord() {
           </CardContent>
         </Card>
       </div>
+      <Stack sx={{ display: { xs: "none", md: "flex" } }}>
+        <div style={{ display: "flex", gap: "5px" }}>
+          <div style={{ width: "50%" }}>
+            <Card>
+              <PieActiveArc />
+            </Card>
+          </div>
+          <div style={{ display: "flex", gap: "5px" }}>
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "50%",
+                height: "12vh",
+                color: "white",
+                background:
+                  "linear-gradient(223deg, #fb0505 49%, rgba(232,232,236,1) 110%)",
+              }}
+            >
+              <FaFacebook style={{ fontSize: "30px" }} />
+              <CardContent>
+                <Typography
+                  sx={{ color: "white" }}
+                  level="body-sm"
+                  id="card-description"
+                >
+                  Follow us on Google Plus
+                </Typography>
+                <Typography
+                  level="title-lg"
+                  aria-describedby="card-description"
+                  mb={1}
+                  sx={{ color: "white" }}
+                >
+                  20000
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "50%",
+                height: "20vh",
+                background:
+                  "linear-gradient(223deg, #316FF6 49%, rgba(232,232,236,1) 110%)",
+                color: "white",
+              }}
+            >
+              <FaFacebook style={{ fontSize: "30px" }} />
+              <CardContent>
+                <Typography
+                  sx={{ color: "white" }}
+                  level="body-sm"
+                  id="card-description"
+                >
+                  Like us on Facebook
+                </Typography>
+                <Typography
+                  level="title-lg"
+                  aria-describedby="card-description"
+                  mb={1}
+                  sx={{ color: "white" }}
+                >
+                  20000
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "50%",
+                color: "white",
+                background:
+                  "linear-gradient(223deg, #1DA1F2 49%, rgba(232,232,236,1) 110%)",
+              }}
+            >
+              <FaTwitter style={{ fontSize: "30px" }} />
+              <CardContent>
+                <Typography
+                  sx={{ color: "white" }}
+                  level="body-sm"
+                  id="card-description"
+                >
+                  Follow us on Twitter
+                </Typography>
+                <Typography
+                  level="title-lg"
+                  aria-describedby="card-description"
+                  mb={1}
+                  sx={{ color: "white" }}
+                >
+                  75800
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Stack>
+      <Stack sx={{ display: { xs: "flex", md: "none" } }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+          <div style={{ width: "100%" }}>
+            <Card>
+              <PieActiveArc />
+            </Card>
+          </div>
+          <div style={{ display: "flex", gap: "5px" }}>
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "50%",
+                height: "20vh",
+                color: "white",
+                background:
+                  "linear-gradient(223deg, #fb0505 49%, rgba(232,232,236,1) 110%)",
+              }}
+            >
+              <FaFacebook style={{ fontSize: "30px" }} />
+              <CardContent>
+                <Typography
+                  sx={{ color: "white" }}
+                  level="body-sm"
+                  id="card-description"
+                >
+                  Follow us on Google Plus
+                </Typography>
+                <Typography
+                  level="title-lg"
+                  aria-describedby="card-description"
+                  mb={1}
+                  sx={{ color: "white" }}
+                >
+                  20000
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "50%",
+                height: "20vh",
+                background:
+                  "linear-gradient(223deg, #316FF6 49%, rgba(232,232,236,1) 110%)",
+                color: "white",
+              }}
+            >
+              <FaFacebook style={{ fontSize: "30px" }} />
+              <CardContent>
+                <Typography
+                  sx={{ color: "white" }}
+                  level="body-sm"
+                  id="card-description"
+                >
+                  Like us on Facebook
+                </Typography>
+                <Typography
+                  level="title-lg"
+                  aria-describedby="card-description"
+                  mb={1}
+                  sx={{ color: "white" }}
+                >
+                  20000
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "50%",
+                color: "white",
+                background:
+                  "linear-gradient(223deg, #1DA1F2 49%, rgba(232,232,236,1) 110%)",
+              }}
+            >
+              <FaTwitter style={{ fontSize: "30px" }} />
+              <CardContent>
+                <Typography
+                  sx={{ color: "white" }}
+                  level="body-sm"
+                  id="card-description"
+                >
+                  Follow us on Twitter
+                </Typography>
+                <Typography
+                  level="title-lg"
+                  aria-describedby="card-description"
+                  mb={1}
+                  sx={{ color: "white" }}
+                >
+                  75800
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Stack>
+      <Stack sx={{ display: { xs: "none", md: "flex" } }}>
+        <div style={{width:"50%"}}>
+          <BasicTable/>
+        </div>
+      </Stack>
+      <Stack sx={{ display: { xs: "flex", md: "none" } }}>
+        <div style={{width:"100%"}}>
+          <BasicTable/>
+        </div>
+      </Stack>
+
+     
     </>
   );
 }
