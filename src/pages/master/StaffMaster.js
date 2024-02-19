@@ -361,7 +361,7 @@ export default function StaffMaster() {
             <Button size="sm" variant="outlined" color="neutral">
               Cancel
             </Button>
-            <Button size="sm" variant="solid">
+            <Button type="submit" size="sm" variant="solid">
               Save
             </Button>
           </CardActions>

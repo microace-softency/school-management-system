@@ -9,12 +9,14 @@ import { FaHandHoldingUsd } from "react-icons/fa";
 import PieActiveArc from "../components/PieActiveArc";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-import { Stack } from "@mui/joy";
+import { FormLabel, Stack } from "@mui/joy";
 import BasicTable from "../components/BasicTable";
+import { FaGooglePlus } from "react-icons/fa";
+
 
 export default function Dashbord() {
   return (
-    <>
+    <div style={{display:"flex", flexDirection:"column", gap:"5%"}}>
       <div style={{ marginTop: "2%" }}>
         <Typography level="h1" color="neutral">
           Dashboard
@@ -110,7 +112,7 @@ export default function Dashbord() {
         </Card>
       </div>
       <Stack sx={{ display: { xs: "none", md: "flex" } }}>
-        <div style={{ display: "flex", gap: "5px" }}>
+        <div style={{ display: "flex", gap: "3%" }}>
           <div style={{ width: "50%" }}>
             <Card>
               <PieActiveArc />
@@ -136,7 +138,7 @@ export default function Dashbord() {
                   "linear-gradient(223deg, #fb0505 49%, rgba(232,232,236,1) 110%)",
               }}
             >
-              <FaFacebook style={{ fontSize: "30px" }} />
+              <FaGooglePlus style={{ fontSize: "30px" }} />
               <CardContent>
                 <Typography
                   sx={{ color: "white" }}
@@ -234,7 +236,7 @@ export default function Dashbord() {
         </div>
       </Stack>
       <Stack sx={{ display: { xs: "flex", md: "none" } }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "3%" }}>
           <div style={{ width: "100%" }}>
             <Card>
               <PieActiveArc />
@@ -260,7 +262,7 @@ export default function Dashbord() {
                   "linear-gradient(223deg, #fb0505 49%, rgba(232,232,236,1) 110%)",
               }}
             >
-              <FaFacebook style={{ fontSize: "30px" }} />
+              <FaGooglePlus style={{ fontSize: "30px" }} />
               <CardContent>
                 <Typography
                   sx={{ color: "white" }}
@@ -358,17 +360,19 @@ export default function Dashbord() {
         </div>
       </Stack>
       <Stack sx={{ display: { xs: "none", md: "flex" } }}>
-        <div style={{width:"50%"}}>
+        <Card style={{width:"50%"}}>
+          <FormLabel>Exam Schedule</FormLabel>
           <BasicTable/>
-        </div>
+        </Card>
       </Stack>
       <Stack sx={{ display: { xs: "flex", md: "none" } }}>
-        <div style={{width:"100%"}}>
+        <Card style={{width:"90%"}}>
+        <FormLabel>Exam Schedule</FormLabel>
           <BasicTable/>
-        </div>
+        </Card>
       </Stack>
 
      
-    </>
+    </div>
   );
 }

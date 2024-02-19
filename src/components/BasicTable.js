@@ -3,7 +3,7 @@ import Table from '@mui/joy/Table';
 
 export default function BasicTable() {
   return (
-    <Table aria-label="basic table">
+    <Table aria-label="basic table" sx={{display:"flex", flexDirection:"column", overflow:"scroll"}}>
       <thead>
         <tr>
           <th style={{ width: '40%' }}> Date</th>

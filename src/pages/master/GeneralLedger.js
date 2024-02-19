@@ -16,6 +16,7 @@ import {
   Stack,
   Typography,
 } from "@mui/joy";
+import OrderTableRow from "../../components/OrderTableRow";
 
 export default function GeneralLedger() {
   return (
@@ -180,6 +181,7 @@ export default function GeneralLedger() {
           </Stack>
           <FormControl>
                 <FormLabel>Subject Name</FormLabel>
+
                 <Input size="sm" placeholder="Subject Name" />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
@@ -252,7 +254,7 @@ export default function GeneralLedger() {
                 <FormLabel
                   id="select-field-demo-label"
                   htmlFor="select-field-demo-button"
-                >
+                >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
                     Order No
                 </FormLabel>
                 <Select
@@ -272,12 +274,13 @@ export default function GeneralLedger() {
                 </Select>
               </FormControl>
         </Stack>
+        {/* <OrderTableRow/> */}
         <CardOverflow sx={{ borderTop: "1px solid", borderColor: "divider" }}>
           <CardActions sx={{ alignSelf: "flex-end", pt: 2 }}>
             <Button size="sm" variant="outlined" color="neutral">
               Cancel
             </Button>
-            <Button size="sm" variant="solid">
+            <Button type="submit" size="sm" variant="solid">
               Save
             </Button>
           </CardActions>
