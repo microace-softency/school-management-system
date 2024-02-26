@@ -16,10 +16,91 @@ import {
   Stack,
   Typography,
 } from "@mui/joy";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+const initialState = {
+  name: "",
+  email: "",
+  contact: "",
+};
 
 export default function StudentMaster() {
+  const navigate = useNavigate();
+  const [state, setState] = useState(initialState);
+  const { name, email, contact } = state;
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3002/api/student/${id}`)
+      .then((resp) => setState({ ...resp.data[0] }));
+  }, [id]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !email || !contact) {
+      toast.error("Please provide value into each inpute field ");
+    } else {
+      axios
+        .post("http://localhost:3002/api/post", {
+          name,
+          email,
+          contact,
+        })
+        .then(() => {
+          setState({ name: "", email: "", contact: "" });
+        })
+        .catch((err) => toast.error(err.respose.data));
+      toast.success("Student Add Successfully");
+      setTimeout(() => navigate("/studentlist"), 500);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
+
   return (
     <Box sx={{ flex: 1, width: "100%", marginTop: "3vh" }}>
+      <button
+        style={{ display: "flex" }}
+        onClick={() => navigate("/studentlist")}
+      >
+        {"<"}
+      </button>
+      <form onSubmit={handleSubmit}>
+        <label>name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={name || ""}
+          onChange={handleInputChange}
+        />
+        <label>email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value={email || ""}
+          onChange={handleInputChange}
+        />
+        <label>contact</label>
+        <input
+          type="text"
+          id="contact"
+          name="contact"
+          value={contact || ""}
+          onChange={handleInputChange}
+        />
+        {/* <input type="submit" value={id ? "update" : "save"}/> */}
+        <button type="submit">{id ? "update" : "save"}</button>
+      </form>
+
       <Card>
         <Box sx={{ mb: 1 }}>
           <Typography level="title-md">Student Profile</Typography>
@@ -276,17 +357,17 @@ export default function StudentMaster() {
               </FormControl>
               <FormControl>
                 <FormLabel>Admin Form No</FormLabel>
-                <Input placeholder='Admin Form No' />
+                <Input placeholder="Admin Form No" />
               </FormControl>
               <FormControl>
                 <FormLabel>Discount%</FormLabel>
-                <Input placeholder='Discount%' />
+                <Input placeholder="Discount%" />
               </FormControl>
               <FormControl>
                 <FormLabel
                   id="select-field-demo-label"
                   htmlFor="select-field-demo-button"
-                  sx={{color:"red"}}
+                  sx={{ color: "red" }}
                 >
                   Leave Out
                 </FormLabel>
@@ -295,7 +376,7 @@ export default function StudentMaster() {
                   <Option value="No">No</Option>
                 </Select>
               </FormControl>
-              <Divider/>
+              <Divider />
               <FormControl>
                 <FormLabel
                   id="select-field-demo-label"
@@ -311,28 +392,28 @@ export default function StudentMaster() {
               </FormControl>
               <FormControl>
                 <FormLabel>Culture</FormLabel>
-                <Input placeholder='Culture' />
+                <Input placeholder="Culture" />
               </FormControl>
-              <Divider/>
-              <FormLabel sx={{color:"blue"}}>Bank Detail</FormLabel>
+              <Divider />
+              <FormLabel sx={{ color: "blue" }}>Bank Detail</FormLabel>
               <FormControl>
                 <FormLabel>Bank Name</FormLabel>
-                <Input placeholder='Bank Name' />
+                <Input placeholder="Bank Name" />
               </FormControl>
               <FormControl>
                 <FormLabel>A/c. No.</FormLabel>
-                <Input placeholder='A/c no...' />
+                <Input placeholder="A/c no..." />
               </FormControl>
               <FormControl>
                 <FormLabel>Branch Name</FormLabel>
-                <Input placeholder='Branch Name' />
+                <Input placeholder="Branch Name" />
               </FormControl>
               <FormControl>
                 <FormLabel>IFSC</FormLabel>
-                <Input placeholder='IFSC Code' />
+                <Input placeholder="IFSC Code" />
               </FormControl>
-              <Divider/>
-              <FormLabel sx={{color:"blue"}}>Transport Details</FormLabel>
+              <Divider />
+              <FormLabel sx={{ color: "blue" }}>Transport Details</FormLabel>
               <FormControl>
                 <FormLabel
                   id="select-field-demo-label"

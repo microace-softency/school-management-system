@@ -9,7 +9,7 @@ import Dashbord from "./pages/Dashbord";
 import SectionMaster from "./pages/master/SectionMaster";
 import SubjectMaster from "./pages/master/SubjectMaster";
 import FeeMaster from "./pages/master/FeeMaster";
-import StudentMaster from "./pages/master/StudentMaster";
+import StudentMaster from "./pages/master/student/StudentMaster";
 import ExaminationMaster from "./pages/master/ExaminationMaster";
 import StaffMaster from "./pages/master/StaffMaster";
 import FeeReceive from "./pages/entry/FeeReceive";
@@ -35,11 +35,17 @@ import FeeDiscountSetp from "./pages/Account/preferencd/FeeDiscountSetup";
 import HostelFeeDiscountSetup from "./pages/Account/preferencd/HostelFeeDiscountSetup";
 import SportsMaster from "./pages/master/sport/SortsMaster";
 import Player from "./pages/master/sport/Player";
+import StudentList from "./pages/master/student/StudentList";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <ToastContainer />
+
         <AuthContextProvider>
           <Routes>
             <Route path="/singin" element={<SignIn />} />
@@ -52,6 +58,8 @@ function App() {
               <Route path="/subjectmaster" element={<SubjectMaster />} />
               <Route path="/feemaster" element={<FeeMaster />} />
               <Route path="/studentmaster" element={<StudentMaster />} />
+              <Route path="/studentmaster/:id" element={<StudentMaster />} />
+              <Route path="/studentlist" element={<StudentList />} />
               <Route
                 path="/examinationmaster"
                 element={<ExaminationMaster />}

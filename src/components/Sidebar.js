@@ -409,7 +409,7 @@ export default function Sidebar() {
                 <ListItem>
                   <ListItemButton
                     sx={{ color: "white" }}
-                    onClick={() => NavigateAndToggleSidebar("/studentmaster")}
+                    onClick={() => NavigateAndToggleSidebar("/studentlist")}
                   >
                     <PersonIcon sx={{ color: "#FFC436" }} />
                     Student Master
