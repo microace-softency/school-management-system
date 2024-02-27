@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './StudentStyle.css';
+import './ClassStyle.css';
 import { toast } from "react-toastify";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbEyeSearch } from "react-icons/tb";
 import Table from "../../../components/Table";
 
-const StudentList = () => {
+import AddIcon from '@mui/icons-material/Add';
+
+const ClassList = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
 
     const loadData = async () => {
         try {
-            const response = await axios.get("http://localhost:3002/api/student");
+            const response = await axios.get("http://localhost:3002/api/class");
             setData(response.data[0]);
             console.log(response.data);
         } catch (error) {
@@ -27,33 +29,29 @@ const StudentList = () => {
 
     const deleteContact = (id) =>{
         if(window.confirm("Are you sure that you wanted to delete that student ?")){
-            axios.delete(`http://localhost:3002/api/remove/${id}`);
-            toast.success("Student Delete Successfully");
+            axios.delete(`http://localhost:3002/api/removeclass/${id}`);
+            toast.success("Class Delete Successfully");
             setTimeout(() => loadData(), 500);
         }
     };
 
     const columns = [
         {
-            header: "Name",
-            accessorKey: "name",
+            header: "Class Code",
+            accessorKey: "classcode",
         },
         {
-            header: "Email",
-            accessorKey: "email",
-        },
-        {
-            header: "Contact",
-            accessorKey: "contact",
+            header: "Class Name",
+            accessorKey: "classname",
         }
     ];
     
     const handleView = (data) => {
-        navigate(`/studentmaster/${data}`)
+        navigate(`/classmaster/${data}`)
       }
     return (
         <div>
-            <button className="btn btn-contact" onClick={() => navigate('/studentmaster')}>Add Student</button>
+            <button className="btn btn-contact" onClick={() => navigate('/classmaster')}><AddIcon /></button>
             {error && <div>Error: {error}</div>}
             <Table
                 data={data}
@@ -74,8 +72,8 @@ const StudentList = () => {
             cell: (row) => {
                 return (
                 <>
-                    <button className="btn btn-view" onClick={() => handleView(row?.row?.original?.id)}><TbEyeSearch/></button>
-                    <button className="btn btn-delete" onClick={() => deleteContact(row?.row?.original?.id)}><RiDeleteBinLine/></button>
+                    <button className="btn btn-view" onClick={() => handleView(row?.row?.original?.classcode)}><TbEyeSearch/></button>
+                    <button className="btn btn-delete" onClick={() => deleteContact(row?.row?.original?.classcode)}><RiDeleteBinLine/></button>
                 </>
             );
         }}]} />
@@ -83,4 +81,4 @@ const StudentList = () => {
     );
 };
 
-export default StudentList;
+export default ClassList;

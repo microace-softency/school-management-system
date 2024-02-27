@@ -21,7 +21,7 @@ export default function Header() {
         position: 'fixed',
         top: 0,
         width: '100%',
-        height: '5%',
+        height: '8%',
         zIndex: 9995,
         p: 2,
         gap: 1,

@@ -167,7 +167,7 @@ export default function Sidebar() {
       <Box
         sx={{
           display: "flex",
-          height: "9%",
+          height: "8%",
           gap: 1,
           alignItems: "center",
           background: "rgb(255, 196, 54)",
@@ -361,7 +361,7 @@ export default function Sidebar() {
                 </ListItem>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("/classmaster")}
+                    onClick={() => NavigateAndToggleSidebar("/classlist")}
                     sx={{ color: "white" }}
                   >
                     <ArticleIcon sx={{ color: "#FFC436" }} />

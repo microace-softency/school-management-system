@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignIn from "./pages/SingIn";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthContextProvider } from "./utils/AuthContext";
-import ClassMaster from "./pages/master/ClassMaster";
+import ClassMaster from "./pages/master/class/ClassMaster";
+import ClassList from "./pages/master/class/ClassList";
 import Dashbord from "./pages/Dashbord";
 import SectionMaster from "./pages/master/SectionMaster";
 import SubjectMaster from "./pages/master/SubjectMaster";
@@ -54,6 +55,8 @@ function App() {
 
               <Route path="/generalledger" element={<GeneralLedger />} />
               <Route path="/classmaster" element={<ClassMaster />} />
+              <Route path="/classmaster/:id" element={<ClassMaster />} />
+              <Route path="/classlist" element={<ClassList />} />
               <Route path="/sectionmaster" element={<SectionMaster />} />
               <Route path="/subjectmaster" element={<SubjectMaster />} />
               <Route path="/feemaster" element={<FeeMaster />} />
