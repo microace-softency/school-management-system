@@ -11,7 +11,7 @@ const initialState = {
   classname: ""
 };
 
-export default function ClassMaster() {
+export default function ViewClass() {
   const navigate = useNavigate();
   const [state, setState] = useState(initialState);
   const { classcode, classname } = state;
@@ -23,45 +23,6 @@ export default function ClassMaster() {
       .then((resp) => setState({ ...resp.data[0] }));
   }, [id]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!classcode || !classname) {
-      toast.error("Please provide value into each inpute field ");
-    } else {
-      if(!id){
-        axios
-        .post("http://localhost:3002/api/createclass", {
-          classcode,
-          classname
-        })
-        .then(() => {
-          setState({ classcode: "", classname: ""});
-          console.log("classdetails",state);
-        })
-        .catch((err) => toast.error(err.respose.data));
-      toast.success("class Add Successfully");
-      } else{
-        axios
-        .put(`http://localhost:3002/api/classupdate/${id}`, {
-          classcode,
-          classname
-        })
-        .then(() => {
-          setState({ classcode: "", classname: ""});
-          console.log("classdetails",state);
-        })
-        .catch((err) => toast.error(err.respose.data));
-      toast.success("class update Successfully");
-      }
-     
-      setTimeout(() => navigate("/classlist"), 500);
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setState({ ...state, [name]: value });
-  };
 
   return (
     <Box sx={{ flex: 1, width: '100%', marginTop:"3vh" }}>
@@ -71,7 +32,6 @@ export default function ClassMaster() {
       >
         {"<"}
       </button>
-      <form onSubmit={handleSubmit}>
         <Card>
           <Box sx={{ mb: 1 }}>
             <Typography level="title-md">Class Details</Typography>
@@ -100,7 +60,7 @@ export default function ClassMaster() {
                   id="classcode"
                   name="classcode"
                   value={classcode || ""}
-                  onChange={handleInputChange}
+                  disabled
                   />
                 </FormControl>
               </Stack>
@@ -110,13 +70,12 @@ export default function ClassMaster() {
                   <Input
                     size="sm"
                     type="Class Name"
-                    // startDecorator={<EmailRoundedIcon />}
                     placeholder="Class Name"
                     sx={{ flexGrow: 1 }}
                     id="classname"
                     name="classname"
                     value={classname || ""}
-                    onChange={handleInputChange}
+                    disabled
                   />
                 </FormControl>
               </Stack>
@@ -125,15 +84,14 @@ export default function ClassMaster() {
           <CardOverflow sx={{ borderTop: '1px solid', borderColor: 'divider' }}>
             <CardActions sx={{ alignSelf: 'flex-end', pt: 2 }}>
               <Button size="sm" variant="outlined" color="neutral" onClick={()=>navigate('/classlist')}>
-                Cancel
+                close
               </Button>
-              <Button type='submit' size="sm" variant="solid">
+              {/* <Button type='submit' size="sm" variant="solid">
                 { id ? "update" : "save"}
-              </Button>
+              </Button> */}
             </CardActions>
           </CardOverflow>
         </Card>
-        </form>
     </Box>
   );
 }

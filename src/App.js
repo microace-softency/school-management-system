@@ -7,7 +7,8 @@ import { AuthContextProvider } from "./utils/AuthContext";
 import ClassMaster from "./pages/master/class/ClassMaster";
 import ClassList from "./pages/master/class/ClassList";
 import Dashbord from "./pages/Dashbord";
-import SectionMaster from "./pages/master/SectionMaster";
+import SectionMaster from "./pages/master/section/SectionMaster";
+import SectionList from "./pages/master/section/SectionList";
 import SubjectMaster from "./pages/master/SubjectMaster";
 import FeeMaster from "./pages/master/FeeMaster";
 import StudentMaster from "./pages/master/student/StudentMaster";
@@ -39,6 +40,9 @@ import Player from "./pages/master/sport/Player";
 import StudentList from "./pages/master/student/StudentList";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import BookMasterList from "./pages/library/BookMasterList";
+import ViewBookMaster from "./pages/library/ViewBookMaster";
+import ViewClass from "./pages/master/class/ViewClass";
 
 
 function App() {
@@ -56,8 +60,10 @@ function App() {
               <Route path="/generalledger" element={<GeneralLedger />} />
               <Route path="/classmaster" element={<ClassMaster />} />
               <Route path="/classmaster/:id" element={<ClassMaster />} />
+              <Route path="/viewclassmaster/:id" element={<ViewClass />} />
               <Route path="/classlist" element={<ClassList />} />
               <Route path="/sectionmaster" element={<SectionMaster />} />
+              <Route path="/sectionlist" element={<SectionList />} />
               <Route path="/subjectmaster" element={<SubjectMaster />} />
               <Route path="/feemaster" element={<FeeMaster />} />
               <Route path="/studentmaster" element={<StudentMaster />} />
@@ -87,7 +93,10 @@ function App() {
               <Route path="/paymentvoucher" element={<PaymentVoucher />} />
               <Route path="/sportfeereceive" element={<SportFeeReceive />} />
 
+              <Route path="/bookmasterlist" element={<BookMasterList />} />
               <Route path="/bookmaster" element={<BookMaster />} />
+              <Route path="/bookmaster/:id" element={<BookMaster />} />
+              <Route path="/viewbookmaster/:id" element={<ViewBookMaster />} />
               <Route path="/bookreceiveissue" element={<BookReceiveIssue />} />
 
               <Route path="/hostel" element={<Hostel />} />

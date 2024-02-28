@@ -51,12 +51,12 @@ export default function Header() {
       </IconButton>
      
       <div style={{display:"flex", alignItems:"center", gap :"3%", padding:"3%"}}>
-      <Input
+      {/* <Input
         sx={{ margin: "2px" , display:{xs:"none", md:"flex"}}}
         size="sm"
         startDecorator={<SearchRoundedIcon />}
         placeholder="Search"
-      />
+      /> */}
       <div  style={{display:"flex" , gap:"33%"}} >
         <MailOutlineIcon sx={{color:"white"}}/>
         <NotificationsIcon sx={{color:"white"}}/>

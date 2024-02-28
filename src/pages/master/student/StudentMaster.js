@@ -44,7 +44,8 @@ export default function StudentMaster() {
     if (!name || !email || !contact) {
       toast.error("Please provide value into each inpute field ");
     } else {
-      axios
+      if(!id){
+        axios
         .post("http://localhost:3002/api/post", {
           name,
           email,
@@ -55,6 +56,20 @@ export default function StudentMaster() {
         })
         .catch((err) => toast.error(err.respose.data));
       toast.success("Student Add Successfully");
+      } else {
+        axios
+        .put(`http://localhost:3002/api/update/${id}`, {
+          name,
+          email,
+          contact,
+        })
+        .then(() => {
+          setState({ name: "", email: "", contact: "" });
+        })
+        .catch((err) => toast.error(err.respose.data));
+      toast.success("Student update Successfully");
+      }
+    
       setTimeout(() => navigate("/studentlist"), 500);
     }
   };

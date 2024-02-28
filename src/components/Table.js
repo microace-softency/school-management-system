@@ -8,6 +8,9 @@ import {
   useReactTable
 } from '@tanstack/react-table';
 import { useSearchParams } from "react-router-dom";
+import { Input } from "@mui/joy";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+
 
 function Table({ columns, data }) {
   const [sorting, setSorting] = useState([])
@@ -54,13 +57,16 @@ function Table({ columns, data }) {
   return (
     <div>
       <div className="mb-3 lg:w-1/3 md:w-1/2 sm:full ml-auto drop-shadow">
-        <input
-          type="text"
+      <Input
+        sx={{ margin: "2px" , display:{xs:"none", md:"flex"}}}
+        size="sm"
+        startDecorator={<SearchRoundedIcon />}
+        type="text"
           className="form-control"
           placeholder="Search Here"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      />
       </div>
       <div className="bg-white rounded-xl overflow-x-scroll drop-shadow">
         <BTable striped bordered hover responsive size="sm" id="table-main">

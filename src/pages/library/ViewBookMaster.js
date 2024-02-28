@@ -26,7 +26,7 @@ const initialState = {
   writerName: "",
 };
 
-export default function BookMaster() {
+export default function ViewBookMaster() {
   const navigate = useNavigate();
   const [state, setState] = useState(initialState);
   const { bookCode, bookGroup, bookName,  publisherName, quantity, writerName} = state;
@@ -38,55 +38,6 @@ export default function BookMaster() {
       .then((resp) => setState({ ...resp.data[0] }));
   }, [id]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!bookCode || !bookGroup || !bookName ||  !publisherName || !quantity || !writerName) {
-      toast.error("Please provide value into each inpute field ");
-    } else {
-      if(!id){
-        axios
-        .post("http://localhost:3002/api/createbook", {
-          bookCode, bookGroup, bookName,  publisherName, quantity, writerName
-        })
-        .then(() => {
-          setState({  
-          bookCode: "",
-          bookGroup: "",
-          bookName: "",
-          publisherName: "",
-          quantity: "",
-          writerName: "",});
-          console.log("classdetails",state);
-        })
-        .catch((err) => toast.error(err.respose.data));
-      toast.success("Book Add Successfully");
-      } else {
-        axios
-        .put(`http://localhost:3002/api/updatebook/${id}`, {
-          bookCode, bookGroup, bookName,  publisherName, quantity, writerName
-        })
-        .then(() => {
-          setState({  
-          bookCode: "",
-          bookGroup: "",
-          bookName: "",
-          publisherName: "",
-          quantity: "",
-          writerName: "",});
-          console.log("classdetails",state);
-        })
-        .catch((err) => toast.error(err.respose.data));
-      toast.success("Book Add Successfully");
-      }
-      
-      setTimeout(() => navigate("/bookmasterlist"), 500);
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setState({ ...state, [name]: value });
-  };
 
   return (
       <Box sx={{ flex: 1, width: "100%", marginTop: "3vh" }}>
@@ -96,7 +47,6 @@ export default function BookMaster() {
       >
         {"<"}
       </button>
-      <form onSubmit={handleSubmit}>
         <Card>
           <Box sx={{ mb: 1 }}>
             <Typography level="title-md">Book Details</Typography>
@@ -128,7 +78,8 @@ export default function BookMaster() {
                   id="bookCode"
                   name="bookCode"
                   value={bookCode || ""}
-                  onChange={handleInputChange}
+                  disabled
+
                   />
                   {/* <Button>+</Button> */}
                   {/* <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} /> */}
@@ -145,7 +96,8 @@ export default function BookMaster() {
                   id="bookName"
                   name="bookName"
                   value={bookName || ""}
-                  onChange={handleInputChange}
+                  disabled
+
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
@@ -159,7 +111,8 @@ export default function BookMaster() {
                   id="quantity"
                   name="quantity"
                   value={quantity || ""}
-                  onChange={handleInputChange}
+                  disabled
+
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
@@ -172,7 +125,8 @@ export default function BookMaster() {
                   id="bookGroup"
                   name="bookGroup"
                   value={bookGroup || ""}
-                  onChange={handleInputChange}
+                  disabled
+
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
@@ -185,7 +139,8 @@ export default function BookMaster() {
                   id="writerName"
                   name="writerName"
                   value={writerName || ""}
-                  onChange={handleInputChange}
+                  disabled
+
                 />
               </FormControl>
               <FormControl sx={{ flexGrow: 1 }}>
@@ -198,7 +153,7 @@ export default function BookMaster() {
                   id="publisherName"
                   name="publisherName"
                   value={publisherName || ""}
-                  onChange={handleInputChange}
+                  disabled
                 />
               </FormControl>
             </Stack>
@@ -206,15 +161,14 @@ export default function BookMaster() {
           <CardOverflow sx={{ borderTop: "1px solid", borderColor: "divider" }}>
             <CardActions sx={{ alignSelf: "flex-end", pt: 2 }}>
               <Button size="sm" variant="outlined" color="neutral" onClick={()=>navigate('/bookmasterlist')}>
-                Cancel
+                Back
               </Button>
-              <Button type="submit" size="sm" variant="solid">
+              {/* <Button type="submit" size="sm" variant="solid">
               { id ? "update" : "save"}
-              </Button>
+              </Button> */}
             </CardActions>
           </CardOverflow>
         </Card>
-      </form>
 
       </Box>
   );

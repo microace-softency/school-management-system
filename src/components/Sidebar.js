@@ -371,7 +371,7 @@ export default function Sidebar() {
                 <ListItem>
                   <ListItemButton
                     sx={{ color: "white" }}
-                    onClick={() => NavigateAndToggleSidebar("/sectionmaster")}
+                    onClick={() => NavigateAndToggleSidebar("/sectionlist")}
                   >
                     <AutoStoriesIcon sx={{ color: "#FFC436" }} />
                     Section Master
@@ -605,7 +605,7 @@ export default function Sidebar() {
               <List sx={{ gap: 0.5, background: "#0056d212" }}>
                 <ListItem>
                   <ListItemButton
-                    onClick={() => NavigateAndToggleSidebar("/bookmaster")}
+                    onClick={() => NavigateAndToggleSidebar("/bookmasterlist")}
                     sx={{ color: "white" }}
                   >
                     <ImportContactsIcon sx={{ color: "#FFC436" }} />

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './ClassStyle.css';
+// import '../ClassStyle.css';
+import '../class/ClassStyle.css';
 import { toast } from "react-toastify";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbEyeSearch } from "react-icons/tb";
@@ -11,14 +12,14 @@ import AddIcon from '@mui/icons-material/Add';
 import { IoIosEye } from "react-icons/io";
 import { FaPen } from "react-icons/fa";
 
-const ClassList = () => {
+const ScetionList = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
 
     const loadData = async () => {
         try {
-            const response = await axios.get("http://localhost:3002/api/class");
+            const response = await axios.get("http://localhost:3002/api/section");
             setData(response.data[0]);
             console.log(response.data);
         } catch (error) {
@@ -39,8 +40,8 @@ const ClassList = () => {
 
     const columns = [
         {
-            header: "Class Code",
-            accessorKey: "classcode",
+            header: "Section Name",
+            accessorKey: "sectionname",
         },
         {
             header: "Class Name",
@@ -56,7 +57,7 @@ const ClassList = () => {
     }
     return (
         <div>
-            <button className="btn btn-contact" onClick={() => navigate('/classmaster')}><AddIcon /></button>
+            <button className="btn btn-contact" onClick={() => navigate('/sectionmaster')}><AddIcon /></button>
             {error && <div>Error: {error}</div>}
             <Table
                 data={data}
@@ -87,4 +88,4 @@ const ClassList = () => {
     );
 };
 
-export default ClassList;
+export default ScetionList;
