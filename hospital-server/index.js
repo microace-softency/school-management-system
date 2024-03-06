@@ -165,7 +165,7 @@ app.get("/registation", async (req, res) => {
     const formattedDate = date.toISOString().split('T')[0];
     
     const sqlInsert =
-      "INSERT INTO registation (date, location, name, image, mobilenumber, sex, age, doctorname, doctordesignation, time, type, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO registation (date, location, name, image, mobilenumber, sex, age, doctorname, doctordesignation, time, type, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIME() now(), ?, ?)";
     
     const result = await db.query(sqlInsert, [
       formattedDate,
@@ -204,6 +204,9 @@ app.post("/api/createregistation", (req, res) =>
   const {
     date, location, name, image, mobilenumber, sex, age, doctorname, doctordesignation, time, type, price
   } = req.body;
+  const currentDate = new Date();
+  const formattedDate = currentDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+  const currentTime = currentDate.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); // Format: HH:MM
 
   const sqlInsert =
     "INSERT INTO registation ( date, location, name, image, mobilenumber, sex, age, doctorname, doctordesignation, time, type, price ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -211,7 +214,7 @@ app.post("/api/createregistation", (req, res) =>
   db.query(
     sqlInsert,
     [
-      date, location, name, image, mobilenumber, sex, age, doctorname, doctordesignation, time, type, price
+      date, location, name, image, mobilenumber, sex, age, doctorname, doctordesignation, time, type, price,
     ],
     (error, result) => {
       if (error) {
@@ -223,6 +226,17 @@ app.post("/api/createregistation", (req, res) =>
       }
     }
   );
+});
+
+//remove registation
+app.delete("/api/removeregistation/:id", (req, res)=>{
+  const{id}= req.params
+  const sqlRemove = "DELETE FROM registation WHERE id = ?";
+  db.query(sqlRemove,id, (error, result)=>{
+    if(error){
+      console.log(error);
+    }
+  })
 });
 
 //fatch location data
