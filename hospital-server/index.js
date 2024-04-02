@@ -8,31 +8,30 @@ app.use(express.json());
 
 const bcrypt = require('bcrypt');
 
-
 app.get("/", (req, res) => {
   res.send("hellow");
 });
 
-app.get("/test", async (req, res) => {
+app.get("/staff", async (req, res) => {
   try {
     const sqlInsert =
-      "INSERT INTO test ( testname, amount, day) VALUES('Blood Test', '150', '1day')";
+      "INSERT INTO staff ( name, degicnation, department, basicpay, pf, esi, aadharcard, pancard) VALUES('ram', 'recepsanist', 'medicine', '25000', '2000', '500', '5263 2563 2563 2568', 'PA568OU65285655')";
     const result = await db.query(sqlInsert);
     console.log("result", result);
-    res.send("test create");
+    res.send("staff create");
   } catch (error) {
     console.error("error", error);
     res.status(500).send("Internal Server Error");
   }
 });
 
-app.get("/pathology", async (req, res) => {
+app.get("/product", async (req, res) => {
   try {
     const sqlInsert =
-      "INSERT INTO pathology ( patientname, testname, referDrName, totalAmount, advancePayment, duePayment, date) VALUES(  'rajnew', 'blood test', 'Dr.kashi' , '150', '50', '100', '18/03/2024')";
+      "INSERT INTO productmaster (  Description, purchesunit, Stock, sale, hsnsaccode , productgroup, productsubgroup, taxcategory) VALUES('peracitamal', '8 unit', '500', 'sales', 'p/a58', 'A', 'aaa', 'gst')";
     const result = await db.query(sqlInsert);
     console.log("result", result);
-    res.send("pathology patiant entry successfully");
+    res.send("product create successfully");
   } catch (error) {
     console.error("error", error);
     res.status(500).send("Internal Server Error");
@@ -64,24 +63,6 @@ app.get("/pathology", async (req, res) => {
 //   });
 // });
 
-// app.post('/api/login', (req, res) => {
-//   console.log('Request Body:', req.body); 
-
-//   const { email, password } = req.body;
-
-//   db.query('SELECT * FROM outdoreuser WHERE email = ? AND password = ?', [email, password], (error, results) => {
-//     if (error) {
-//       console.error(error);
-//       res.status(500).json({ error: 'Internal Server Error' });
-//     } else {
-//       if (results.length > 0) {
-//         res.json({ message: 'Login successful' });
-//       } else {
-//         res.status(401).json({ error: 'Invalid credentials' });
-//       }
-//     }
-//   });
-// });
 
 //fatch data
 app.get("/api/appointment", async (req, res) => {
@@ -183,17 +164,21 @@ app.post("/api/createdoctor", (req, res) =>
 {
   const {
     doctorname,
-    designation
+    designation,
+    fees,
+    percentage
   } = req.body;
 
   const sqlInsert =
-    "INSERT INTO doctor (doctorname, designation) VALUES(?, ?)";
+    "INSERT INTO doctor (doctorname,designation,fees, percentage) VALUES(?, ?, ?, ?)";
 
   db.query(
     sqlInsert,
     [
       doctorname,
-      designation
+      designation,
+      fees,
+      percentage
     ],
     (error, result) => {
       if (error) {
@@ -208,6 +193,7 @@ app.post("/api/createdoctor", (req, res) =>
 });
 
 //book doctor
+
 app.delete("/api/removedoctor/:id", (req, res)=>{
   const{id}= req.params
   const sqlRemove = "DELETE FROM doctor WHERE id = ?";
@@ -330,7 +316,7 @@ app.get("/api/registation", async (req, res) => {
 app.post("/api/createregistation", (req, res) => 
 {
   const {
-    date, location, name, image, mobilenumber, sex, age, doctorname, time, type, price
+    date, location, name, image, mobilenumber, sex, age, doctorname, time, type, price, guardianname, guardiannumber
   } = req.body;
   // const imageBuffer = Buffer.from(image, 'base64');
 
@@ -338,12 +324,12 @@ app.post("/api/createregistation", (req, res) =>
   const formattedDate = currentDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
   const currentTime = currentDate.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); // Format: HH:MM
   const sqlInsert =
-    "INSERT INTO registation ( date, location, name, image, mobilenumber, sex, age, doctorname, time, type, price ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )";
+    "INSERT INTO registation ( date, location, name, image, mobilenumber, sex, age, doctorname, time, type, price, guardianname, guardiannumber ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )";
 
   db.query(
     sqlInsert,
     [
-      date, location, name, image, mobilenumber, sex, age, doctorname, time, type, price
+      date, location, name, image, mobilenumber, sex, age, doctorname, time, type, price, guardianname, guardiannumber
     ],
     (error, result) => {
       if (error) {
@@ -546,12 +532,12 @@ app.delete("/api/removeoutdoreuser/:id", (req, res)=>{
 
 //outdoreuser login
 
-app.post('/login', async (req, res) => {
-  console.log("requestbody", req.body);
+app.post('/api/login', async (req, res) => {
+  console.log("request body", req.body);
   try {
     const { email, password } = req.body;
-    
-    const results = await db.query('SELECT * FROM outdoreuser WHERE email = ?', email);
+
+    const results = await db.query('SELECT * FROM outdoreuser WHERE email = ?', [email]);
 
     if (results.length === 0) {
       return res.status(404).json({ message: 'User not found' });
@@ -559,18 +545,21 @@ app.post('/login', async (req, res) => {
 
     const user = results[0];
 
-    const passwordMatch = await (password, user.password);
-
-    if (!passwordMatch) {
+    // const passwordMatch = await (password ===user.password);
+    if (!password === user.password) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
+    console.log("password", user.password);
 
     res.status(200).json({ message: 'Login successful', user });
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error fetching user:', error); // Log detailed error
     res.status(500).json({ message: 'Error fetching user' });
   }
 });
+
+
+//--------------pathology--------------------------//
 
 //fatch pathology  user
 app.get("/api/pathology", async (req, res) => {
@@ -634,6 +623,153 @@ app.post("/api/createpathology", (req, res) => {
 });
 
 
+//-----------------------outdoreregistaion-----------------------//
+
+//fatch data
+app.get("/api/outdoreregistation", async (req, res) => {
+  await db
+    .query("SELECT * FROM outdore_registation ")
+    .then((data) => res.send(data))
+    .catch((err) => console.log(err));
+});
+
+//crete Outdore-registation 
+app.post("/api/createoutdoreregistation", (req, res) => 
+{
+  const {
+     date, time, patiantname, address, image, mobilenumber, guardianname, guardiannumber, doctor, sex, age  } = req.body;
+  // const imageBuffer = Buffer.from(image, 'base64');
+
+  const currentDate = new Date();
+  const formattedDate = currentDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+  const currentTime = currentDate.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); // Format: HH:MM
+  const sqlInsert =
+    "INSERT INTO registation (  date, time, patiantname, address, image, mobilenumber, guardianname, guardiannumber, doctor, sex, age ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )";
+
+  db.query(
+    sqlInsert,
+    [
+       date, time, patiantname, address, image, mobilenumber, guardianname, guardiannumber, doctor, sex, age    ],
+    (error, result) => {
+      if (error) {
+        console.error("Error inserting data:", error);
+        res.status(500).send("Error inserting data into database");
+      } else {
+        console.log("Data inserted successfully");
+        res.status(200).send("Doctor Created");
+      }
+    }
+  );
+});
+//---------------admision-----------------------------------//
+
+//fatch admision  user
+app.get("/api/admission", async (req, res) => {
+  await db
+    .query("SELECT * FROM admissions ")
+    .then((data) => res.send(data))
+    .catch((err) => console.log(err));
+});
+
+//remove admision user
+app.delete("/api/removeadmission/:id", (req, res)=>{
+  const{id}= req.params
+  const sqlRemove = "DELETE FROM admissions WHERE id = ?";
+  db.query(sqlRemove,id, (error, result)=>{
+    if(error){
+      console.log(error);
+    }
+  })
+});
+
+// create admision data
+app.post("/api/createadmision", (req, res) => {
+  const {
+   name, address, mobilenumber, pincode, block, age, sex, doctor, date, time, guardiannumbaer, guardianname
+  } = req.body;
+
+  const sqlInsert =
+    "INSERT INTO admissions (  name, address, mobilenumber, pincode, block, age, sex, doctor, date, time, guardiannumbaer, guardianname) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+  db.query(
+    sqlInsert,
+    [
+     name, address, mobilenumber, pincode, block, age, sex, doctor, date, time, guardiannumbaer, guardianname
+    ],
+    (error, result) => {
+      if (error) {
+        console.error("Error inserting data:", error);
+        res.status(500).send("Error inserting data into database");
+      } else {
+        console.log("Data inserted successfully");
+        res.status(200).send("Admission Created");
+      }
+    }
+  );
+});
+
+
+
+
+//===================================product==========================================\\
+
+
+//fatch data
+app.get("/api/product", async (req, res) => {
+  await db
+    .query("SELECT * FROM productmaster ")
+    .then((data) => res.send(data))
+    .catch((err) => console.log(err));
+});
+
+//PRODUCT remove
+app.delete("/api/removeproduct/:id", (req, res)=>{
+  const{id}= req.params
+  const sqlRemove = "DELETE FROM productmaster WHERE id = ?";
+  db.query(sqlRemove,id, (error, result)=>{
+    if(error){
+      console.log(error);
+    }
+  })
+});
+
+//create product 
+app.post("/api/createproduct", (req, res) => 
+{
+  const {
+     Description, purchesunit, Stock, sale, hsnsaccode, productgroup, productsubgroup, taxcategory
+  } = req.body;
+
+  const sqlInsert =
+    "INSERT INTO productmaster ( Description, purchesunit, Stock, sale, hsnsaccode, productgroup, productsubgroup, taxcategory) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+
+  db.query(
+    sqlInsert,
+    [
+       Description, purchesunit, Stock, sale, hsnsaccode, productgroup, productsubgroup, taxcategory
+    ],
+    (error, result) => {
+      if (error) {
+        console.error("Error inserting data:", error);
+        res.status(500).send("Error inserting data into database");
+      } else {
+        console.log("Data inserted successfully");
+        res.status(200).send("Doctor Created");
+      }
+    }
+  );
+});
+
+
+//  ======================================STAFF MASTER ====================================\\
+
+//fatch staff
+app.get("/api/staff", async (req, res) => {
+  await db
+    .query("SELECT * FROM staff ")
+    .then((data) => res.send(data))
+    .catch((err) => console.log(err));
+});
 
 db.query("SELECT 1")
   .then((data) => {
